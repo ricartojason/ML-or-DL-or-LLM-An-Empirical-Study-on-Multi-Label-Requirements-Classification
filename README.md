@@ -18,4 +18,7 @@ We restructure the EMSE dataset to ensure its compatibility with LLMs.
 
 ## 📌 Baselines
 
+## 📔 Results
+The experimental results of all baseline models have been placed in the "\results" folder.
+
 ## We will keep updating!
