@@ -1,5 +1,7 @@
 # ML-or-DL-or-LLM-An-Empirical-Study-on-Multi-Label-Requirements-Classification
-## ❗ Declaration: This repository contains a summary overview of this paper, as well as the open-source code, data, and experimental results that we have released. ***We strictly adhere to the double-blind policy. The GitHub account name is just a randomly chosen online name and has nothing to do with anyone!***
+## ❗ Declaration
+This repository contains a summary overview of this paper, as well as the open-source code, data, and experimental results that we have released. 
+***We strictly adhere to the double-blind policy. The GitHub account name is just a randomly chosen online name and has nothing to do with anyone!***
 
 ## 📑 Overview
 - 🧠 Objective: This paper conducts a comprehensive empirical comparison of ML, DL, and LLMbased approaches to assess their effectiveness in requirements
