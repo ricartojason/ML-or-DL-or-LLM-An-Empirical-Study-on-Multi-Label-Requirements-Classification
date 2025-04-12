@@ -17,7 +17,7 @@ conventional techniques.
 
 ## 📊 Dataset
 We restructure the EMSE dataset to ensure its compatibility with LLMs.
-- The dataset has been processed in Alpaca format and stored in the "\data\llm" folder.
+- The dataset has been processed in Alpaca format and stored in the "\data\llm" folder. The refactored template format is as follows:
 - The EMSE dataset used for the deep learning baseline is stored in the "data\dl" folder.
 
 ## 📌 Baselines
