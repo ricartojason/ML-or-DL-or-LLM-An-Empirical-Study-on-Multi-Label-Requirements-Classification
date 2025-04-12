@@ -27,7 +27,8 @@ At the root of the project, you will see:
 |  |  └── trainer.py 
 |  |  └── ...
 |  └── common # a set of utility functions
-├── run_bert.py
+├──run_bert_pure.py
+└── ...
 ```
 ### Dependencies
 
