@@ -18,7 +18,7 @@ conventional techniques.
 ## 📊 Dataset
 We restructure the EMSE dataset to ensure its compatibility with LLMs.
 - The dataset has been processed in Alpaca format used for the LLM and stored in the "\data\llm" folder. The refactored template format is as follows:
-![image](https://github.com/MaiEmily/map/blob/master/public/image/20190528145810708.png)
+![image]([https://github.com/MaiEmily/map/blob/master/public/image/20190528145810708.png](https://github.com/ricartojason/ML-or-DL-or-LLM-An-Empirical-Study-on-Multi-Label-Requirements-Classification/blob/main/format.png))
 
 - The EMSE dataset used for the deep learning baseline is stored in the "data\dl" folder.
 
