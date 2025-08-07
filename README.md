@@ -34,7 +34,7 @@ Eg:
 The DeepSeek-R1-Distill-Llama-8B: [deepseek](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Llama-8B)
 The Llama-3.1-8B: [Llama3.1](https://huggingface.co/meta-llama/Llama-3.1-8B)
 
-2. After downloading the pre-trained large language model, we implement LoRA fine-tuning using the Llama-factory framework. For specific methods, please refer to the official LLaMA-Factory documentation [LLaMA-Factory](https://llamafactory.readthedocs.io/zh-cn/latest/).
+2. After downloading the pre-trained large language model, we implement LoRA fine-tuning using the Llama-factory framework. For specific methods, please refer to the official [LLaMA-Factory](https://llamafactory.readthedocs.io/zh-cn/latest/) documentation.
 
 3. Run `python train_spilt.py ` to splitting training dataset and test dataset.
 
@@ -42,7 +42,7 @@ The Llama-3.1-8B: [Llama3.1](https://huggingface.co/meta-llama/Llama-3.1-8B)
 
 5. Run `python run_evuluation.py ` to evaluate the fine-tuned large language models. This script is supported by several key modules: `inference.py` provides both single-sentence and batch-processing modes for model inference; `metrics.py` offers various evaluation metrics for multi-label classification; and `utils.py` handles foundational operations such as loading models, tokenizers, and data preprocessing.
 
-6.Run `examples.py` to execute the large model inference examples.
+6. Run `examples.py` to execute the large model inference examples.
 
 ## 📌 Baselines
 Our implemented deep learning baseline codes are stored in the "\Deep learning" folder.
