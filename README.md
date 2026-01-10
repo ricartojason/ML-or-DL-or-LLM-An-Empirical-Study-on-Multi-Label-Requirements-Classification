@@ -21,15 +21,16 @@ We restructure the EMSE dataset to ensure its compatibility with LLMs.
 ![image](format.png)
 
 - The EMSE dataset used for the deep learning baseline is stored in the "data\dl" folder.
+The reconstructed ARBD dataset used for the baselines is stored in the "data\arbd" folder.
 
 ## 🚀 Method
 Implementation of LoRA fine-tuning based on a generative Large Language Model is located in the "\LLM" folder.
 
 Due to hardware resource limitations, this study focuses on fine-tuning models with smaller parameter counts. Within the sub-32B parameter range, available models include several versions of DeepSeek-R1 (14B, 8B, 7B, 1.5B), Llama-3.2 (3B, 1B), and Llama-3.1 (8B). From this pool, we selected DeepSeek-R1 (14B, 8B), Llama-3.1 (8B), and Llama-3.2 (3B) for a controlled comparative analysis. This selection facilitates the control of key variables to systematically compare: (1) the performance of different model architectures (DeepSeek-R1 vs. Llama-3.1) at the same parameter scale (8B), and (2) the impact of different parameter scales (14B vs. 8B) within the same model architecture (DeepSeek-R1).
 
-### How to fine-tuning the Large Language Model.
+### How to fine-tune the Large Language Model.
 
-1. you need download pretrained LLM model from [huggingface](https://huggingface.co/models).
+1. You need to download the pretrained LLM model from [huggingface](https://huggingface.co/models).
 Eg:
 The DeepSeek-R1-Distill-Llama-8B: [deepseek](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Llama-8B)
 The Llama-3.1-8B: [Llama3.1](https://huggingface.co/meta-llama/Llama-3.1-8B)
