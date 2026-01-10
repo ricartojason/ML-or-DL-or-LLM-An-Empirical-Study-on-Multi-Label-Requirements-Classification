@@ -21,7 +21,7 @@ We restructure the EMSE dataset to ensure its compatibility with LLMs.
 ![image](format.png)
 
 - The EMSE dataset used for the deep learning baseline is stored in the "data\dl" folder.
-The reconstructed ARBD dataset used for the baselines is stored in the "data\arbd" folder.
+The reconstructed ARBD dataset used for the baselines is stored in the "data\ARBD" folder.
 
 ## 🚀 Method
 Implementation of LoRA fine-tuning based on a generative Large Language Model is located in the "\LLM" folder.
@@ -50,6 +50,11 @@ Our implemented deep learning baseline codes are stored in the "\Deep learning" 
 
 ## 📔 Results
 The experimental results of all baseline models have been placed in the "\results" folder.
+
+## 📊 Case analysis
+We analyzed classification failure cases in pure reasoning models (such as Deepseek-R1) and identified the following types:
+1. Reasoning exceeded the maximum truncation length, resulting in excessive resource consumption. The system automatically truncated the output, preventing the final result from being displayed. The reasoning process is as follows:
+
 
 ## Acknowledgement
 This repo benefits from [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory?tab=readme-ov-file#). Thanks for their wonderful works.
