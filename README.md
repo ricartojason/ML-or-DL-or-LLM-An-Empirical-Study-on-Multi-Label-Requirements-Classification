@@ -21,7 +21,7 @@ We restructure the EMSE dataset to ensure its compatibility with LLMs.
 ![image](format.png)
 
 - The EMSE dataset used for the deep learning baseline is stored in the "data\dl" folder.
-The reconstructed ARBD dataset used for the baselines is stored in the "data\ARBD" folder.
+- The reconstructed ARBD dataset used for the baselines is stored in the "data\ARBD" folder.
 
 ## 🚀 Method
 Implementation of LoRA fine-tuning based on a generative Large Language Model is located in the "\LLM" folder.
