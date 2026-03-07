@@ -53,11 +53,11 @@ The experimental results of all baseline models have been placed in the "\result
 
 ## 📊 Case analysis
 We analyzed classification failure cases in pure reasoning models (such as Deepseek-R1-14B) and identified the following types:
-1. Reasoning is too long. Reasoning exceeded the maximum truncation length, resulting in excessive resource consumption. The system automatically truncated the output, preventing the final result from being displayed. The reasoning process is as follows:![image](over inference .png)
-2. Over-reasoning. After completing the inference and outputting the answer, the model continues to generate additional responses, exhibiting over-reasoning that leads to confusion in the final answer. The reasoning process is illustrated as shown in the figure：![image](inference too long.png)
-3. After thinking, no answer was output. Thinking models like Deepseek typically output the reasoning process within <think></think> tags, followed by the final answer after the </think> tag. However, in some cases, the model's output becomes confused after completing its thought process, leading to classification errors. As shown in the figure:[image](after think confusion.png)
-4. Predict label error. In this paper, the prediction labels are constrained using the JSON format {classification:[Usa,Per,Rel,Sup,Mis]}. In some cases, incorrect prediction labels have appeared, such as “Misc.” As shown in the figure:[image](label error.png)
-5. Label format error. As stated in point 4, predicted labels must fall within the set [Usa, Per, Rel, Sup, Mis]. In some cases, the label prediction format is incorrect, resulting in the appearance of non-functional requirement names, as shown in the figure:[image](label format error.png)
+1. Reasoning is too long. Reasoning exceeded the maximum truncation length, resulting in excessive resource consumption. The system automatically truncated the output, preventing the final result from being displayed. The reasoning process is as follows:![image](overreason.png)
+2. Over-reasoning. After completing the inference and outputting the answer, the model continues to generate additional responses, exhibiting over-reasoning that leads to confusion in the final answer. The reasoning process is illustrated as shown in the figure：![image](toolong.png)
+3. After thinking, no answer was output. Thinking models like Deepseek typically output the reasoning process within <think></think> tags, followed by the final answer after the </think> tag. However, in some cases, the model's output becomes confused after completing its thought process, leading to classification errors. As shown in the figure:[image](confusion.png)
+4. Predict label error. In this paper, the prediction labels are constrained using the JSON format {classification:[Usa,Per,Rel,Sup,Mis]}. In some cases, incorrect prediction labels have appeared, such as “Misc.” As shown in the figure:[image](labelerror.png)
+5. Label format error. As stated in point 4, predicted labels must fall within the set [Usa, Per, Rel, Sup, Mis]. In some cases, the label prediction format is incorrect, resulting in the appearance of non-functional requirement names, as shown in the figure:[image](formaterror.png)
  
 
 ## Acknowledgement
