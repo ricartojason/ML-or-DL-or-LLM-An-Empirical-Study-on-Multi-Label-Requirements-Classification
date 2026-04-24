@@ -47,7 +47,7 @@ The Llama-3.1-8B: [Llama3.1](https://huggingface.co/meta-llama/Llama-3.1-8B)
 
 ## 📌 Baselines
 Our implemented deep learning baseline codes are stored in the "\Deep learning" folder.
-NFRNET Configuration：
+NFRNET Configuration（BERT+BiLSTM）：
 In the model training and testing phase, we initialized the length of each requirement text to 64 words. If the requirement text is longer than this value, it will be truncated forward, and if it is shorter than this value, it will be filled with 0. The proposed model uses lookahead [22] optimizer. The initial hyperparameters 
 are: batch size = 128, learning rate = 0.01, size of N-gram window = 3, dropout = 0.5, and multi-sample dropout regularization technology is used to improve the generalization ability of the model.
 MNoR-BERT Configuration:
@@ -69,6 +69,11 @@ We analyzed classification failure cases in pure reasoning models using CoT (suc
 As stated in point 4, predicted labels must fall within the set [Usa, Per, Rel, Sup, Mis]. In some cases, the label prediction format is incorrect, resulting in the appearance of non-functional requirement names, as shown in the figure:![image](formaterror.png)
 
  ## 📊 Deep Learning Model failure analysis
+we extracted and plotted the training dynamics (Step Loss, Gradient Norm, and Learning Rate) for the completely failed baselines (e.g., the original NFRNet configuration) and have included these plots，as shown in the figures:![image](grad.jpg) ![image](lr.jpg) ![image](loss.jpg)
+
+
+Our quantitative analysis of these plots revealed that our initial hypothesis was inaccurate. The gradient norm (grad_norm) did not explode to infinity or NaN, but rather remained within a relatively small range (peaking around 1.0). Instead, the data reveals that the failure was caused by optimization oscillation leading to representation collapse. Because the original baseline configuration utilized an excessively aggressive learning rate (1e-2) on a highly imbalanced dataset, the model’s loss dropped rapidly at first but then immediately plateaued. The model essentially took overly large optimization steps, jumping over the nuanced local minima of minority classes, and quickly collapsed into a degenerate state where it failed to make any confident multi-label predictions.
+
 
 ## Acknowledgement
 This repo benefits from [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory?tab=readme-ov-file#). Thanks for their wonderful works.
