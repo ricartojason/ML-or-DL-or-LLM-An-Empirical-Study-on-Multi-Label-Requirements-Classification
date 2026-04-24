@@ -47,18 +47,28 @@ The Llama-3.1-8B: [Llama3.1](https://huggingface.co/meta-llama/Llama-3.1-8B)
 
 ## 📌 Baselines
 Our implemented deep learning baseline codes are stored in the "\Deep learning" folder.
+NFRNET Configuration：
+In the model training and testing phase, we initialized the length of each requirement text to 64 words. If the requirement text is longer than this value, it will be truncated forward, and if it is shorter than this value, it will be filled with 0. The proposed model uses lookahead [22] optimizer. The initial hyperparameters 
+are: batch size = 128, learning rate = 0.01, size of N-gram window = 3, dropout = 0.5, and multi-sample dropout regularization technology is used to improve the generalization ability of the model.
+MNoR-BERT Configuration:
+Batch_size:16, epoches:6, 1 Dense 20, dropout:0.2, Sigmoid
+BERT base (L = 12, H = 768, A = 12, total parameter = 110 M) 
+BERT Large (L = 24, H = 1024, A = 16, total parameter = 340 M).
+Where, L denotes number of layers (transformer blocks), H is the hidden size and A is attention tasks.
+
 
 ## 📔 Results
 The experimental results of all baseline models have been placed in the "\results" folder.
 
 ## 📊 Case analysis
-We analyzed classification failure cases in pure reasoning models (such as Deepseek-R1-14B) and identified the following types:
+We analyzed classification failure cases in pure reasoning models using CoT (such as Deepseek-R1-14B) and identified the following types:
 1. Reasoning is too long. Reasoning exceeded the maximum truncation length, resulting in excessive resource consumption. The system automatically truncated the output, preventing the final result from being displayed. The reasoning process is as follows:![image](toolong.png)
 2. Over-reasoning. After completing the inference and outputting the answer, the model continues to generate additional responses, exhibiting over-reasoning that leads to confusion in the final answer. The reasoning process is illustrated as shown in the figure：![image](overreason.png)
 3. After thinking, no answer was output. Thinking models like Deepseek typically output the reasoning process within <think></think> tags, followed by the final answer after the </think> tag. However, in some cases, the model's output becomes confused after completing its thought process, leading to classification errors. As shown in the figure:![image](confusion.png)
-4. Predict label error. In this paper, the prediction labels are constrained using the JSON format {classification:[Usa,Per,Rel,Sup,Mis]}. In some cases, incorrect prediction labels have appeared, such as “Misc.” As shown in the figure:![image](labelerror.png)
-5. Label format error. As stated in point 4, predicted labels must fall within the set [Usa, Per, Rel, Sup, Mis]. In some cases, the label prediction format is incorrect, resulting in the appearance of non-functional requirement names, as shown in the figure:![image](formaterror.png)
- 
+4. Label format error. In this paper, the prediction labels are constrained using the JSON format {classification:[Usa,Per,Rel,Sup,Mis]}. In some cases, incorrect prediction labels have appeared, such as “Misc.” As shown in the figure:![image](labelerror.png)
+As stated in point 4, predicted labels must fall within the set [Usa, Per, Rel, Sup, Mis]. In some cases, the label prediction format is incorrect, resulting in the appearance of non-functional requirement names, as shown in the figure:![image](formaterror.png)
+
+ ## 📊 Deep Learning Model failure analysis
 
 ## Acknowledgement
 This repo benefits from [LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory?tab=readme-ov-file#). Thanks for their wonderful works.
