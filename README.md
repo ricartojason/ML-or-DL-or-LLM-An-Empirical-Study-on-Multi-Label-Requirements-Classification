@@ -69,7 +69,7 @@ We analyzed classification failure cases in pure reasoning models using CoT (suc
 As stated in point 4, predicted labels must fall within the set [Usa, Per, Rel, Sup, Mis]. In some cases, the label prediction format is incorrect, resulting in the appearance of non-functional requirement names, as shown in the figure:![image](formaterror.png)
 
  ## 📊 Deep Learning Model failure analysis
-we extracted and plotted the training dynamics (Step Loss, Gradient Norm, and Learning Rate) for the completely failed baselines (e.g., the original NFRNet configuration) and have included these plots，as shown in the figures:![image](grad.jpg) ![image](lr.jpg) ![image](loss.jpg)
+we extracted and plotted the training dynamics ( Gradient Norm, Learning Rate and Step Loss) for the completely failed baselines (e.g., the original NFRNet configuration) and have included these plots，as shown in the figures:![image](grad.jpg) gradient ![image](lr.jpg) learning rate![image](loss.jpg) loss
 
 
 Our quantitative analysis of these plots revealed that our initial hypothesis was inaccurate. The gradient norm (grad_norm) did not explode to infinity or NaN, but rather remained within a relatively small range (peaking around 1.0). Instead, the data reveals that the failure was caused by optimization oscillation leading to representation collapse. Because the original baseline configuration utilized an excessively aggressive learning rate (1e-2) on a highly imbalanced dataset, the model’s loss dropped rapidly at first but then immediately plateaued. The model essentially took overly large optimization steps, jumping over the nuanced local minima of minority classes, and quickly collapsed into a degenerate state where it failed to make any confident multi-label predictions.
