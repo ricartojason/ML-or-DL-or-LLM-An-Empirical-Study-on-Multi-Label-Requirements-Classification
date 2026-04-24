@@ -47,9 +47,11 @@ The Llama-3.1-8B: [Llama3.1](https://huggingface.co/meta-llama/Llama-3.1-8B)
 
 ## 📌 Baselines
 Our implemented deep learning baseline codes are stored in the "\Deep learning" folder.
+
 NFRNET Configuration（BERT+BiLSTM）：
 In the model training and testing phase, we initialized the length of each requirement text to 64 words. If the requirement text is longer than this value, it will be truncated forward, and if it is shorter than this value, it will be filled with 0. The proposed model uses lookahead [22] optimizer. The initial hyperparameters 
 are: batch size = 128, learning rate = 0.01, size of N-gram window = 3, dropout = 0.5, and multi-sample dropout regularization technology is used to improve the generalization ability of the model.
+
 MNoR-BERT Configuration:
 Batch_size:16, epoches:6, 1 Dense 20, dropout:0.2, Sigmoid
 BERT base (L = 12, H = 768, A = 12, total parameter = 110 M) 
